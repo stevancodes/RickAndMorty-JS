@@ -1,12 +1,12 @@
-var container = document.querySelector(".container");
-var paginationDiv = document.querySelector(".pagination");
-var leftArrow = document.createElement("button");
+let container = document.querySelector(".container");
+let paginationDiv = document.querySelector(".pagination");
+let leftArrow = document.createElement("button");
 leftArrow.textContent = "<";
 leftArrow.className = "arrow";
-var rightArrow = document.createElement("button");
+let rightArrow = document.createElement("button");
 rightArrow.textContent = ">";
 rightArrow.className = "arrow";
-const headerRedirect = document.querySelectorAll(".headerRedirect")
+const headerRedirect = document.querySelectorAll(".headerRedirect");
 
 let buttons = [];
 
@@ -49,16 +49,16 @@ function fetchData() {
 }
 
 function makeChar(data) {
-  var cardsDelete = document.querySelectorAll(".card");
+  let cardsDelete = document.querySelectorAll(".card");
   [...cardsDelete].forEach((card) => card.remove());
   data.results.forEach((element) => {
-    var card = document.createElement("div");
+    let card = document.createElement("div");
     card.className = "card";
-    var img = document.createElement("img");
+    let img = document.createElement("img");
     img.setAttribute("src", element.image);
-    var name = document.createElement("h2");
+    let name = document.createElement("h2");
     name.innerText = element.name;
-    var button = document.createElement("button");
+    let button = document.createElement("button");
     button.innerText = "LIKE";
 
     card.appendChild(img);
@@ -97,8 +97,10 @@ rightArrow.addEventListener("click", function () {
 });
 
 ///redirect back to first page
-headerRedirect.forEach((e) => e.addEventListener("click", function () {
-  currentPage = 1
-  pagination()
-  fetchData()
-}))
+headerRedirect.forEach((e) =>
+  e.addEventListener("click", function () {
+    currentPage = 1;
+    pagination();
+    fetchData();
+  })
+);
